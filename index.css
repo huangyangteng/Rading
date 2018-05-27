@@ -1,0 +1,62 @@
+#form{
+    padding-top: 40px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 20px;
+    color: gray;
+}
+#form>input{
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    
+}
+#form>input:hover{
+    border-color: #80c0f0;
+}
+#form>button{
+    padding: 5px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #80c0f0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+}
+#form>button:hover{
+    transition: 1s all;
+    box-shadow: 1px 1px #666;
+    cursor: pointer;
+}
+#form>button:active,#form>button:focus{
+    outline: none;
+    color: #666;
+}
+
+/* 表格 */
+.book-table{
+    width: 708.2px;
+    margin: 20px auto;
+    margin-bottom: 50px;
+}
+.table-head>td{
+    color: #80c0f0;
+}
+.table-head>td:first-child{
+    color: #333;
+    font-size: 18px;
+    white-space: nowrap;
+}
+.table-content>td:first-child{
+    color: #80c0f0;
+}
+.book-table tr td{
+    border-bottom: 1px solid #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}

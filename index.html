@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vue组件</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./vue.js"></script>
+    <script src="./js/index.js" type="module"></script>
+    
+</head>
+
+<body>
+    <div id="app">
+        <section v-show="showForm">
+            <div id="form">
+                 书的名字
+                <input type="text" v-model="newBook.name">
+                <br> 书的总页码
+                <input type="text" v-model.number="newBook.page_all">
+                <br> 一次读
+                <input type="text" v-model.number="newBook.each_read_page">页
+                <br> 开始时间
+                <input type="date" v-model="newBook.start_time">
+                <br> 读完需要
+                <input type="text" v-model.number="unitsNum">天
+                <br>
+                
+                <button @click="submitMsg">提交</button>
+            </div>
+            
+            <hr>
+            <h2>今日任务</h2>
+            <ul>
+                <!-- 循环units -->
+                <li v-for="(item,index) in todaysWork">{{item}}</li>
+            </ul>
+            <hr>
+        </section>
+
+        
+       
+        <!--表格  -->
+        <h2 @click="hideOther">读书计划</h2>
+        <table class="book-table"  v-for="(book,index) in books">
+            <tr class="table-head">
+                <td>《{{book.name}}》</td>
+                <td>阅读时间</td>
+                <td>24小时</td>
+                <td>3天</td>
+                <td>7天</td>
+                <td>15天</td>
+                <td>30天</td>
+            </tr>
+            <tr class="table-content" v-for="(unit,index) in book.units">
+                <td>{{unit.name |nameSplit}}</td>
+                <td>{{unit.one_day_time-24*60*60*1000 | translateTime}}</td>
+                <td>{{unit.one_day_time | translateTime}}</td>
+                <td>{{unit.three_day_time | translateTime}}</td>
+                <td>{{unit.seven_day_time | translateTime}}</td>
+                <td>{{unit.fifteen_day_time | translateTime}}</td>
+                <td>{{unit.thirty_day_time | translateTime}}</td>
+            </tr>
+        </table>
+
+    </div>
+   
+</body>
+
+</html>
